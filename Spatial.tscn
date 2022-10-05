@@ -1,0 +1,224 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://court.jpg" type="Texture" id=1]
+[ext_resource path="res://net.jpg" type="Texture" id=2]
+[ext_resource path="res://ball.jpg" type="Texture" id=3]
+[ext_resource path="res://Ball.gd" type="Script" id=4]
+[ext_resource path="res://Player.gd" type="Script" id=5]
+[ext_resource path="res://Computer.gd" type="Script" id=6]
+[ext_resource path="res://Label.gd" type="Script" id=7]
+[ext_resource path="res://menu.png" type="Texture" id=8]
+[ext_resource path="res://Menu.gd" type="Script" id=9]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 50, 1, 70 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 60, 2, 100 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 24, 5, 0.125 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 48, 10, 0.25 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0.682353 )
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 80, 4.5, 1 )
+
+[sub_resource type="SphereShape" id=7]
+radius = 0.175
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SphereMesh" id=8]
+material = SubResource( 10 )
+radius = 0.175
+height = 0.35
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SphereShape" id=11]
+radius = 2.0
+
+[sub_resource type="CubeMesh" id=12]
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=13]
+
+[sub_resource type="CylinderMesh" id=15]
+top_radius = 0.125
+bottom_radius = 0.125
+height = 0.5
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0.360784, 0.337255, 0.337255, 1 )
+
+[sub_resource type="CylinderMesh" id=18]
+top_radius = 0.75
+bottom_radius = 0.75
+height = 0.25
+
+[sub_resource type="SpatialMaterial" id=19]
+flags_transparent = true
+albedo_color = Color( 0.360784, 0.337255, 0.337255, 0.831373 )
+
+[sub_resource type="SphereShape" id=20]
+radius = 0.75
+
+[sub_resource type="CubeMesh" id=21]
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=22]
+albedo_color = Color( 0.360784, 0.337255, 0.337255, 1 )
+
+[sub_resource type="SpatialMaterial" id=24]
+
+[sub_resource type="CylinderMesh" id=25]
+material = SubResource( 24 )
+top_radius = 0.125
+bottom_radius = 0.125
+height = 0.5
+
+[sub_resource type="CylinderMesh" id=27]
+top_radius = 0.75
+bottom_radius = 0.75
+height = 0.25
+
+[sub_resource type="SpatialMaterial" id=28]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0.831373 )
+
+[sub_resource type="ViewportTexture" id=29]
+viewport_path = NodePath("Info/Viewport")
+
+[sub_resource type="CubeMesh" id=30]
+
+[sub_resource type="SpatialMaterial" id=31]
+albedo_texture = ExtResource( 8 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Court" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Court"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Court"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="Net" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Net"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Net"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -1, -3.69465e-08, 7.92319e-08, 0, 0.906308, 0.422618, -8.74228e-08, 0.422618, -0.906308, 0, 20, -61.1 )
+
+[node name="Ball" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.4707, -36.9303 )
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ball"]
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ball"]
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[node name="Player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -47.146 )
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 0.997354, -0.0726986, 0, 0.0726986, 0.997354, 0, 0, 1.702 )
+shape = SubResource( 11 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Player"]
+mesh = SubResource( 12 )
+material/0 = SubResource( 13 )
+
+[node name="Handle" type="KinematicBody" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.242, -0.015, 0.732 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Player/Handle"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.222, 0, 0 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
+
+[node name="Head" type="KinematicBody" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.702 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Player/Head"]
+transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 19 )
+
+[node name="Computer" type="KinematicBody" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 7, 50 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Computer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.702 )
+shape = SubResource( 20 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Computer"]
+mesh = SubResource( 21 )
+material/0 = SubResource( 22 )
+
+[node name="Handle" type="KinematicBody" parent="Computer"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.24, -0.015, 0.732 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Computer/Handle"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.222, 0, 0 )
+mesh = SubResource( 25 )
+
+[node name="Head" type="KinematicBody" parent="Computer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.702 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Computer/Head"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 27 )
+material/0 = SubResource( 28 )
+
+[node name="Sun" type="DirectionalLight" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, 0, 45.3084, 0.460854 )
+light_energy = 0.3
+shadow_enabled = true
+
+[node name="Info" type="Sprite3D" parent="."]
+transform = Transform( -10, 0, -8.74227e-08, 0, 10, 0, 8.74227e-07, 0, -1, -8, 10, -29.086 )
+flip_v = true
+modulate = Color( 0.027451, 0.027451, 0.223529, 1 )
+texture = SubResource( 29 )
+
+[node name="Viewport" type="Viewport" parent="Info"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+
+[node name="Label" type="Label" parent="Info/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+valign = 1
+script = ExtResource( 7 )
+
+[node name="Menu" type="MeshInstance" parent="."]
+transform = Transform( 15, 0, 0, 0, 9.06308, -0.422618, 0, 4.22618, 0.906308, 0, 12, -45 )
+visible = false
+mesh = SubResource( 30 )
+material/0 = SubResource( 31 )
+script = ExtResource( 9 )
