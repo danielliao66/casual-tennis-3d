@@ -4,5 +4,5 @@ This project uses Godot 3D engine to create simplified tennis practice game. Sin
 ## How to play
 Download and launch the execution file:  
 Linux: [Casual Tennis.x86_64](https://github.com/danielliao66/casual-tennis-3d/blob/main/Casual%20Tennis.x86_64); 
-Windows: [Casual Tennis.exe](https://github.com/danielliao66/casual-tennis-3d/blob/main/Casual%20Tennis.exe)  
+Windows: [Casual Tennis.exe](https://github.com/danielliao66/casual-tennis-3d/raw/main/Casual%20Tennis.exe)  
 and press "M" on the keyboard to show the menu for the key mappings.
