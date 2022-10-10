@@ -38,7 +38,7 @@ func _physics_process(delta):
 				dv_y.x -= 1.5
 			v += dv_xz + dv_y
 	v.y += G * delta
-	if translation.z > 50 or translation.z < -50 or translation.x > 30 or translation.x < -30 or Input.is_action_pressed("ui_restart"):
+	if translation.z > 60 or translation.z < -60 or translation.x > 30 or translation.x < -30 or Input.is_action_pressed("ui_restart"):
 		translation = orig_pos
 		v = orig_v
 		w = orig_w

@@ -13,12 +13,12 @@ var rng = RandomNumberGenerator.new()
 
 func _physics_process(delta):
 	if ball.v.z > 0:
-		v_inst = (ball.translation - racquet.global_translation) * 13
+		v_inst = (ball.translation - racquet.global_translation) * 15
 		move_and_collide(v_inst * delta);
 		if translation.z < 5:
 			translation.z = 5
 		if (not made_choice):
-			hori_level = player.hori_level
+			hori_level = ball.v.z / 6 + 1 ;
 			rng.randomize()
 			rotation_degrees.y = rng.randi_range(80, 100)
 			if rng.randi_range(0, 1) == 1:
