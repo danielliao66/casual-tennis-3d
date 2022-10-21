@@ -145,7 +145,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -47.146 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
-transform = Transform( 1, 0, 0, 0, 0.997354, -0.0726986, 0, 0.0726986, 0.997354, 0, 0, 1.702 )
+transform = Transform( 1, 0, 0, 0, 0.997354, -0.0726986, 0, 0.0726986, 0.997354, 0, 0, 2 )
 shape = SubResource( 11 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Player"]
@@ -201,7 +201,7 @@ light_energy = 0.3
 shadow_enabled = true
 
 [node name="Info" type="Sprite3D" parent="."]
-transform = Transform( -10, 0, -8.74227e-08, 0, 10, 0, 8.74227e-07, 0, -1, -8, 10, -29.086 )
+transform = Transform( -10, 0, -8.74227e-08, 0, 10, 0, 8.74227e-07, 0, -1, -8, 10, -10 )
 flip_v = true
 modulate = Color( 0.027451, 0.027451, 0.223529, 1 )
 texture = SubResource( 29 )
