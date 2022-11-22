@@ -71,9 +71,9 @@ func _input(event):
 			list[4] = spin_sort
 			label.update_text(list)
 	elif event.is_action_pressed("ui_y_pos"):
-		rotation_degrees.y = 150
+		rotation_degrees.y = 135
 	elif event.is_action_pressed("ui_y_neg"):
-		rotation_degrees.y = -150
+		rotation_degrees.y = -135
 	elif event.is_action_released("ui_y_pos"):
 		w = -15
 	elif event.is_action_released("ui_y_neg"):
