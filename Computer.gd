@@ -14,9 +14,9 @@ var rng = RandomNumberGenerator.new()
 func _physics_process(delta):
 	if ball.v.z > 0:
 		v_inst = ball.translation - racquet.global_translation
-		v_inst.x *= 10
-		v_inst.y *= 10
-		v_inst.z *= 1e-2
+		v_inst.x *= 5
+		v_inst.y *= 0
+		v_inst.z *= 5e-1
 		move_and_collide(v_inst * delta);
 		if translation.z < 5:
 			translation.z = 5

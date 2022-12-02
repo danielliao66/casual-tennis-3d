@@ -46,9 +46,9 @@ height = 0.35
 [sub_resource type="SpatialMaterial" id=9]
 albedo_texture = ExtResource( 3 )
 
-[sub_resource type="CylinderShape" id=33]
-height = 7.0
+[sub_resource type="CapsuleShape" id=32]
 radius = 2.0
+height = 7.0
 
 [sub_resource type="CubeMesh" id=12]
 size = Vector3( 1, 1, 1 )
@@ -72,9 +72,9 @@ height = 0.25
 flags_transparent = true
 albedo_color = Color( 0.360784, 0.337255, 0.337255, 0.831373 )
 
-[sub_resource type="CylinderShape" id=32]
-height = 3.0
-radius = 6.0
+[sub_resource type="CapsuleShape" id=33]
+radius = 2.0
+height = 7.0
 
 [sub_resource type="CubeMesh" id=21]
 size = Vector3( 1, 1, 1 )
@@ -147,8 +147,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -47.146 )
 script = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
-transform = Transform( 1, 0, 0, 0, 0.997354, -0.0726986, 0, 0.0726986, 0.997354, 0, 0, 2 )
-shape = SubResource( 33 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 2 )
+shape = SubResource( 32 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Player"]
 mesh = SubResource( 12 )
@@ -175,8 +175,8 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 7, 4
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Computer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.702 )
-shape = SubResource( 32 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 1.702 )
+shape = SubResource( 33 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Computer"]
 mesh = SubResource( 21 )
