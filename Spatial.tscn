@@ -46,9 +46,8 @@ height = 0.35
 [sub_resource type="SpatialMaterial" id=9]
 albedo_texture = ExtResource( 3 )
 
-[sub_resource type="CapsuleShape" id=32]
+[sub_resource type="SphereShape" id=34]
 radius = 2.0
-height = 7.0
 
 [sub_resource type="CubeMesh" id=12]
 size = Vector3( 1, 1, 1 )
@@ -72,9 +71,8 @@ height = 0.25
 flags_transparent = true
 albedo_color = Color( 0.360784, 0.337255, 0.337255, 0.831373 )
 
-[sub_resource type="CapsuleShape" id=33]
+[sub_resource type="SphereShape" id=33]
 radius = 2.0
-height = 7.0
 
 [sub_resource type="CubeMesh" id=21]
 size = Vector3( 1, 1, 1 )
@@ -148,7 +146,7 @@ script = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Player"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 2 )
-shape = SubResource( 32 )
+shape = SubResource( 34 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Player"]
 mesh = SubResource( 12 )
@@ -203,7 +201,7 @@ light_energy = 0.3
 shadow_enabled = true
 
 [node name="Info" type="Sprite3D" parent="."]
-transform = Transform( -10, 0, -8.74227e-08, 0, 10, 0, 8.74227e-07, 0, -1, -8, 10, -10 )
+transform = Transform( -10, 0, 8.74228e-08, 0, 10, 0, -8.74228e-07, 0, -1, -8, 10, -10 )
 flip_v = true
 modulate = Color( 0.027451, 0.027451, 0.223529, 1 )
 texture = SubResource( 29 )
@@ -219,7 +217,7 @@ valign = 1
 script = ExtResource( 7 )
 
 [node name="Menu" type="MeshInstance" parent="."]
-transform = Transform( 14.7721, 0.733869, 0.157379, 0, 9.06308, -0.422618, -2.60472, 4.16198, 0.892539, 0, 12, -45 )
+transform = Transform( 14.7721, 0, 0.173648, 0, 10, 0, -2.60472, 0, 0.984808, 0, 12, -45 )
 visible = false
 mesh = SubResource( 30 )
 material/0 = SubResource( 31 )

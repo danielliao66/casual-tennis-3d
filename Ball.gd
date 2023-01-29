@@ -15,16 +15,10 @@ func _physics_process(delta):
 		if collider == $"../Court":
 			v.y = -v.y
 		elif collider == $"../Player" or collider == $"../Computer":
-			var v_hori_abs = 6 * collider.hori_level
-			var theta = collider.rotation.y
+			var v_hori_abs = collider.hori_level
+			var theta = deg2rad(collider.rot_ang)
 			if theta != 0:
 				var theta_amount = abs(theta)
-				var lower = deg2rad(75)
-				var higher = deg2rad(105)
-				if theta_amount < lower:
-					theta *= lower / theta_amount
-				elif theta_amount > higher:
-					theta *= higher / theta_amount
 				v.x = -cos(theta) * v_hori_abs
 				v.z = sin(theta) * v_hori_abs
 				w = Vector3(sin(theta), 0, cos(theta)) * collider.spin_level
@@ -33,10 +27,18 @@ func _physics_process(delta):
 				v *= (theta / theta_amount)
 				w *= (theta / theta_amount)
 				if collider == $"../Computer":
+					if collider.rot_deg > 0:
+						collider.w_y_inst = -15
+					elif collider.rot_deg < 0:
+						collider.w_y_inst = 15
+					else:
+						v.x = 0
+						v.y = 0
+						v.z *= 0.5
+					collider.made_choice = false
 					v = -v
 					w = -w
-					collider.made_choice = false
-			v.y = 7 * collider.vert_level
+			v.y = collider.vert_level
 			var dv_xz = Vector3(-v.y * w.z , -v.z * w.x + v.x * w.z, v.y * w.x) * 0.05
 			var dv_y = Vector3(v.z, 0, -v.x) * w.y * 0.01
 			if collider.w_y_inst < 0:
